@@ -5,34 +5,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 // BEGIN
+
 public class App {
-    public static boolean scrabble(String randomWord, String world) {
-        List<Character> randomWord = new ArrayList<>();
-        List<Character> world = new ArrayList<>();
-        int count = 0;
+    public static boolean scrabble(String letters, String word) {
+        // Приводим все символы к нижнему регистру
+        letters = letters.toLowerCase();
+        word = word.toLowerCase();
 
-        char[] randomWordArray = randomWord.toCharArray();
-        char[] worldArray = world.toCharArray();
+        // Создаем массив для хранения количества каждого символа в наборе
+        int[] letterCount = new int[26];
 
-        for(char c: randomWordArray) {
-            randomChars.add(c);
+        // Заполняем массив количеством символов в наборе
+        for (int i = 0; i < letters.length(); i++) {
+            char c = letters.charAt(i);
+            letterCount[c - 'a']++;
         }
-        for(char c: worldArray) {
-            worldChars.add(c);
-        }
-        for(char c: worldChars) {
-            if(randomChars.contains(c)) {
-                count++;
-                randomChars.remove(Charter.valueOf(c));
-            } else {
+
+        // Проверяем, достаточно ли символов для составления слова
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (letterCount[c - 'a'] == 0) {
                 return false;
             }
+            letterCount[c - 'a']--;
         }
-        if(count == worldChar.size()) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return true;
     }
 }
 //END
