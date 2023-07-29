@@ -6,10 +6,10 @@ import java.util.List;
 
 // BEGIN
     public static boolean scrabble(String letters, String word) {
+        ArrayList<Character> letterList = new ArrayList<>();
+
         letters = letters.toLowerCase();
         word = word.toLowerCase();
-
-        ArrayList<Character> letterList = new ArrayList<>();
 
         for (char c : letters.toCharArray()) {
             letterList.add(c);
