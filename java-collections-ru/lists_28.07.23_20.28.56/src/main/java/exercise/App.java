@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // BEGIN
+public class App {
     public static boolean scrabble(String letters, String word) {
         ArrayList<Character> letterList = new ArrayList<>();
 
@@ -21,4 +22,5 @@ import java.util.List;
         }
         return true;
     }
+}
 //END
