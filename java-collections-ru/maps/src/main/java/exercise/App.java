@@ -10,8 +10,8 @@ public class App {
 
         String[] splitWord = suggestion.split(" ");
 
-        for(String s: splitWord) {
-            if(wordCount.containsKey(s)) {
+        for (String s: splitWord) {
+            if (wordCount.containsKey(s)) {
                 int count = wordCount.get(s);
                 count++;
                 wordCount.put(s, count);
@@ -26,7 +26,7 @@ public class App {
         StringBuilder sb = new StringBuilder();
 
         sb.append("{\n");
-        for(Map.Entry<String, Integer> entry: wordCount.entrySet()) {
+        for (Map.Entry<String, Integer> entry: wordCount.entrySet()) {
             sb.append(" ")
                     .append(entry.getKey())
                     .append(":  ")
