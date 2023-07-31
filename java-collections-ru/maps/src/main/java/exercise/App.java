@@ -30,14 +30,15 @@ public class App {
         StringBuilder sb = new StringBuilder();
 
         sb.append("{\n");
-        for (Map.Entry<String, Integer> entry: wordCount.entrySet()) {
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
             sb.append("  ")
                     .append(entry.getKey())
                     .append(": ")
                     .append(entry.getValue())
-                    .append('\n');
+                    .append("\n");
         }
         sb.append("}");
+
         return sb.toString();
     }
 }
