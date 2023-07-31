@@ -8,9 +8,16 @@ public class App {
     public static Map<String, Integer> getWordCount(String suggestion) {
         Map<String, Integer> wordCount = new HashMap<>();
 
+        if (suggestion.trim().isEmpty()) {
+            return wordCount;
+        }
+
         String[] splitWord = suggestion.split(" ");
 
         for (String s: splitWord) {
+            if (s.isEmpty()) {
+                continue;
+            }
             if (wordCount.containsKey(s)) {
                 int count = wordCount.get(s);
                 count++;
