@@ -27,9 +27,9 @@ public class App {
 
         sb.append("{\n");
         for (Map.Entry<String, Integer> entry: wordCount.entrySet()) {
-            sb.append(" ")
+            sb.append("  ")
                     .append(entry.getKey())
-                    .append(":  ")
+                    .append(": ")
                     .append(entry.getValue())
                     .append('\n');
         }
