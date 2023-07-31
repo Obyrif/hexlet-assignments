@@ -5,7 +5,7 @@ import java.util.Map;
 
 // BEGIN
 public class App {
-    public static String getWordCount(String suggestion) {
+    public static Map<String, Integer> getWordCount(String suggestion) {
         Map<String, Integer> wordCount = new HashMap<>();
 
         String[] splitWord = suggestion.split(" ");
