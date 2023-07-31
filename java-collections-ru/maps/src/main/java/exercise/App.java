@@ -23,6 +23,10 @@ public class App {
     }
 
     public static String toString(Map<String, Integer> wordCount) {
+        if(wordCount.isEmpty()) {
+            return "{}";
+        }
+
         StringBuilder sb = new StringBuilder();
 
         sb.append("{\n");
