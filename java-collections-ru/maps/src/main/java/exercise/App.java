@@ -23,7 +23,7 @@ public class App {
     }
 
     public static String toString(Map<String, Integer> wordCount) {
-        if(wordCount.isEmpty()) {
+        if (wordCount.isEmpty()) {
             return "{}";
         }
 
