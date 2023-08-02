@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 // BEGIN
 public class App {
-    public static List<Map<String, String>> findWhere(List<Map<String, String>> books, Map<String, String> line) {
-        List<Map<String, String>> result = new ArrayList<>();
 
-        for (Map<String, String> book: books) {
-            if (book.entrySet().containsAll(line.entrySet())) {
+    public static <K, V> List<Map<K, V>> findWhere(List<Map<K, V>> books, Map<K, V> criteria) {
+        List<Map<K, V>> result = new ArrayList<>();
+        for (Map<K, V> book : books) {
+            if (book.entrySet().containsAll(criteria.entrySet())) {
                 result.add(book);
             }
         }
