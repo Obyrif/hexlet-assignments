@@ -17,7 +17,7 @@ class AppTest {
         unput.add(3);
         int number = 2;
         List<Integer> result = App.take(unput,number);
-        ssertThat(result).containsExactly(1, 2);
+        assertThat(result).containsExactly(1, 2);
         // END
     }
 }
