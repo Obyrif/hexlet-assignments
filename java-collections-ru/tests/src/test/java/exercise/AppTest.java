@@ -8,15 +8,12 @@ import org.junit.jupiter.api.Test;
 class AppTest {
 
     @Test
-    void testTake(List<Integer> list, int numberElement) {
+    void testTake() {
         // BEGIN
-        List<Integer> unput = new ArrayList<>();
-        unput.add(1);
-        unput.add(2);
-        unput.add(3);
-        int number = 2;
-        List<Integer> result = App.take(unput, number);
-        assertThat(result).containsExactly(1, 2);
+        List<Integer> inputList = Arrays.asList(1, 2, 3, 4, 5);
+        int numberOfElements = 3;
+        List<Integer> result = Take.take(inputList, numberOfElements);
+        assertEquals(Arrays.asList(1, 2, 3), result);
         // END
     }
 }
