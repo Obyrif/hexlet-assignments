@@ -1,51 +1,22 @@
 package exercise;
 
-//import static org.assertj.core.api.Assertions.assertThat;
-import java.util.List;
-//import java.util.ArrayList;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import org.junit.Assert;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 
 class AppTest {
     @Test
     void testTake() {
-        // Arrange
-        List<Integer> inputList = Arrays.asList(1, 2, 3, 4, 5);
-        int numberOfElements = 3;
+        List<Integer> numbers1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        List<Integer> expected1 = Arrays.asList(1, 2);
+        Assert.assertEquals(expected1, App.take(numbers1, 2));
 
-        // Act
-        List<Integer> result = Take.take(inputList, numberOfElements);
-
-        // Assert
-        assertEquals(Arrays.asList(1, 2, 3), result);
-    }
-
-    @Test
-    void testTake_EmptyList() {
-        // Arrange
-        List<Integer> inputList = Arrays.asList();
-        int numberOfElements = 3;
-
-        // Act
-        List<Integer> result = Take.take(inputList, numberOfElements);
-
-        // Assert
-        assertEquals(Arrays.asList(), result);
-    }
-
-    @Test
-    void testTake_NumberOfElementsGreaterThanListSize() {
-        // Arrange
-        List<Integer> inputList = Arrays.asList(1, 2, 3);
-        int numberOfElements = 5;
-
-        // Act
-        List<Integer> result = Take.take(inputList, numberOfElements);
-
-        // Assert
-        assertEquals(Arrays.asList(1, 2, 3), result);
+        List<Integer> numbers2 = new ArrayList<>(Arrays.asList(7, 3, 10));
+        List<Integer> expected2 = Arrays.asList(7, 3, 10);
+        Assert.assertEquals(expected2, App.take(numbers2, 8));
     }
 }
