@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class AppTest {
 
     @Test
-    void testTake() {
+    void testTake(List<Integer> list, int number) {
         // BEGIN
         List<Integer> inputList = Arrays.asList(1, 2, 3, 4, 5);
         int numberOfElements = 3;
