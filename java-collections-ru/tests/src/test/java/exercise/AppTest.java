@@ -7,54 +7,130 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 class AppTest {
+    @Test
+    public void testRight() {
+        List<Integer> elements = new ArrayList<>();
+        elements.add(1);
+        elements.add(2);
+        elements.add(3);
+        elements.add(4);
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+
+        List<Integer> result = Implementations.right(elements, 2);
+
+        assertEquals(expected, result);
+    }
 
     @Test
-    void testTake() {
-        // BEGIN
+    public void testRightWithEmptyList() {
+        List<Integer> elements = new ArrayList<>();
 
-        @Test
-        void rightshouldReturnSelectedElements() {
-            List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5);
-            int count = 3;
+        List<Integer> expected = new ArrayList<>();
 
-            List<Integer> expected = Arrays.asList(1, 2, 3);
-            List<Integer> actual = Right.right(elements, count);
+        List<Integer> result = Implementations.right(elements, 3);
 
-            assertEquals(expected, actual);
-        }
+        assertEquals(expected, result);
+    }
 
-        @Test
-        void rightshouldReturnAllElementsWhenCountExceedsLength() {
-            List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5);
-            int count = 10;
+    @Test
+    public void testRightWithCountGreaterThanLength() {
+        List<Integer> elements = new ArrayList<>();
+        elements.add(1);
+        elements.add(2);
+        elements.add(3);
 
-            List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5);
-            List<Integer> actual = Right.right(elements, count);
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
 
-            assertEquals(expected, actual);
-        }
+        List<Integer> result = Implementations.right(elements, 5);
 
-        @Test
-        void rightshouldReturnEmptyListWhenCountIsZero() {
-            List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5);
-            int count = 0;
+        assertEquals(expected, result);
+    }
 
-            List<Integer> expected = new ArrayList<>();
-            List<Integer> actual = Right.right(elements, count);
+    @Test
+    public void testWrong1() {
+        List<Integer> elements = new ArrayList<>();
+        elements.add(1);
+        elements.add(2);
+        elements.add(3);
 
-            assertEquals(expected, actual);
-        }
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
 
-        @Test
-        void rightshouldReturnEmptyListWhenElementsIsEmpty() {
-            List<Integer> elements = new ArrayList<>();
-            int count = 5;
+        List<Integer> result = Implementations.wrong1(elements, 2);
 
-            List<Integer> expected = new ArrayList<>();
-            List<Integer> actual = Right.right(elements, count);
+        assertEquals(expected, result);
+    }
 
-            assertEquals(expected, actual);
-        }
-        // END
+    @Test
+    public void testWrong1WithEmptyList() {
+        List<Integer> elements = new ArrayList<>();
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(0);
+
+        List<Integer> result = Implementations.wrong1(elements, 3);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testWrong2() {
+        List<Integer> elements = new ArrayList<>();
+        elements.add(1);
+        elements.add(2);
+        elements.add(3);
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+
+        List<Integer> result = Implementations.wrong2(elements, 2);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testWrong2WithEmptyList() {
+        List<Integer> elements = new ArrayList<>();
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(100);
+
+        List<Integer> result = Implementations.wrong2(elements, 3);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testWrong3() {
+        List<Integer> elements = new ArrayList<>();
+        elements.add(1);
+        elements.add(2);
+        elements.add(3);
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+
+        List<Integer> result = Implementations.wrong3(elements, 2);
+
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testWrong3WithEmptyList() {
+        List<Integer> elements = new ArrayList<>();
+
+        List<Integer> expected = new ArrayList<>();
+
+        List<Integer> result = Implementations.wrong3(elements, 3);
+
+        assertEquals(expected, result);
     }
 }
