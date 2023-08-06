@@ -46,7 +46,7 @@ class AppTest {
         List<Integer> elements = Arrays.asList(1, 2, 3, 4, 5);
         int count = 3;
 
-        List<Integer> expected = Arrays.asList(1, 2, 3);
+        List<Integer> expected = Arrays.asList(1, 2, 3, 4);
         List<Integer> actual = Implementations.wrong3(elements, count);
 
         Assertions.assertEquals(expected, actual);
