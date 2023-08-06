@@ -41,7 +41,7 @@ class Implementations {
         List<Integer> result = right(elements, count);
 
         if (length != 0 && count <= length) {
-            result.add(10);
+            result.add(4);
         }
 
         return result;
