@@ -52,4 +52,4 @@ class AppTest {
         Assertions.assertEquals(expected, actual);
     }
 }
-}
+
