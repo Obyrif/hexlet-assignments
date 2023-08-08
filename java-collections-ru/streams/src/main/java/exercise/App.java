@@ -6,17 +6,12 @@ import java.util.List;
 
 // BEGIN
 public class App {
+    private static final List<String> FREE_DOMENTS = Arrays.asList("gmail.com" , "yandex.ru " , "hotmail.com");
+
     public static int getCountOfFreeEmails(List<String> email) {
         return (int) email.stream()
-                .filter(adress -> isFreeDomain(adress))
+                .map(email -> email.split("@") [1])
+                .filter(email -> FREE_DOMENTS.contains(email))
                 .count();
-    }
-    public static boolean isFreeDomain(String adress) {
-        String[] split = adress.split("@");
-        if (split.length > 1) {
-            String domain = split[1];
-            return domain.equals("gmail.com") || domain.equals("yandex.ru") || domain.equals("hotmail.com");
-        }
-        return false;
     }
 }
