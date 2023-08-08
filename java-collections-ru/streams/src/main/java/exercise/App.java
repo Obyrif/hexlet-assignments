@@ -5,13 +5,15 @@ import java.util.List;
 
 
 // BEGIN
-public class App {
-    private static final List<String> FREE_DOMENTS = Arrays.asList("gmail.com" , "yandex.ru " , "hotmail.com");
+class App {
 
-    public static int getCountOfFreeEmails(List<String> email) {
-        return email.stream()
-                .map(emails -> emails.split("@") [1])
-                .filter(emails -> FREE_DOMENTS.contains(emails))
+    private static final List<String> FREE_DOMAINS = Arrays.asList("gmail.com", "yandex.ru", "hotmail.com");
+
+    public static long getCountOfFreeEmails(List<String> emails) {
+        return emails
+                .stream()
+                .map(email -> email.split("@")[1])
+                .filter(email -> FREE_DOMAINS.contains(email))
                 .count();
     }
 }
