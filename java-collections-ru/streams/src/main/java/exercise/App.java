@@ -10,3 +10,5 @@ public class App {
                 .filter(name -> StringUtils.isNotBlank(name))
                 .filter(name -> name.startWith("gmail", "yandex", "hotmail"))
                 .count();
+    }
+}
