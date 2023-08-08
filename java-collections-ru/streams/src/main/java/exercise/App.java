@@ -1,17 +1,22 @@
 package exercise;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
+
 
 // BEGIN
 public class App {
     public static int getCountOfFreeEmails(List<String> email) {
-        List<String> emails = email;
-        List<String> filterEmail = emails.stream()
-                .filter(name -> name.startsWith("gmail") || name.startsWith("yandex") || name.startsWith("hotmail"))
-                .collect(Collectors.toList());
-        int result = filterEmail.size();
-        return result;
+        return (int) email.stream()
+                .filter(adress -> isFreeDomain(adress))
+                .count();
+    }
+    public static boolean isFreeDomain(Strind adress) {
+        String[] split = adress.split("@");
+        if(split.length > 1) {
+            String domain = split[1];
+            return domain.equals("gmail.com") || domain.equals("yandex.ru") || domain.equals("hotmail.com");
+        }
+        return false;
     }
 }
