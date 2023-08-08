@@ -6,8 +6,11 @@ import java.util.Arrays;
 // BEGIN
 public class App {
     public static int getCountOfFreeEmails(List<String> email) {
-        return email.stream()
+        List<String> emails = email;
+        List<String> filterEmail = emails.stream()
                 .filter(name -> name.startsWith("gmail") || name.startsWith("yandex") || name.startsWith("hotmail"))
-                .count();
+                .collect(Collectors.toList());
+        int result = filterEmail.size();
+        return result;
     }
 }
