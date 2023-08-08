@@ -11,9 +11,9 @@ public class App {
                 .filter(adress -> isFreeDomain(adress))
                 .count();
     }
-    public static boolean isFreeDomain(Strind adress) {
+    public static boolean isFreeDomain(String adress) {
         String[] split = adress.split("@");
-        if(split.length > 1) {
+        if (split.length > 1) {
             String domain = split[1];
             return domain.equals("gmail.com") || domain.equals("yandex.ru") || domain.equals("hotmail.com");
         }
