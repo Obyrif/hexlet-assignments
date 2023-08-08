@@ -9,9 +9,9 @@ public class App {
     private static final List<String> FREE_DOMENTS = Arrays.asList("gmail.com" , "yandex.ru " , "hotmail.com");
 
     public static int getCountOfFreeEmails(List<String> email) {
-        return (int) emails.stream()
-                .map(email -> email.split("@") [1])
-                .filter(email -> FREE_DOMENTS.contains(email))
+        return (int) email.stream()
+                .map(emails -> emails.split("@") [1])
+                .filter(emails -> FREE_DOMENTS.contains(emails))
                 .count();
     }
 }
