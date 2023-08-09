@@ -8,19 +8,10 @@ public class App {
         int rows = array.length;
         int cols = array[0].length;
 
-        String[][] image = new String[rows * 2][cols * 2];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                String pix = array[i][j];
-
-                image[i * 2][j * 2] = pix;
-                image[i * 2 + 1][j * 2] = pix;
-                image[i * 2][j * 2 + 1] = pix;
-                image[i * 2 + 1][j * 2 + 1] = pix;
-            }
-        }
-        return image;
+        return Arrays.stream(array)
+                .flatMap(row -> Arrays.stream(row).flatMap(pix -> Stream.of(pix, pix)))
+                .map(pix -> new String[]{pix, pix})
+                .toArray(String[][]::new);
     }
 }
 // END
