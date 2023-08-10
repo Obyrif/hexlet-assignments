@@ -3,14 +3,21 @@ package exercise;
 import java.util.Arrays;
 
 // BEGIN
-public class App {
-    public static String[][] enlargeArrayImage(String[][] array) {
-        int rows = array.length;
-        int cols = array[0].length;
+class App {
+    public static String[] duplicateValues(String[] items) {
 
-        return Arrays.stream(array)
-                .flatMap(row -> Arrays.stream(row).flatMap(pix -> Stream.of(pix, pix)))
-                .map(pix -> new String[]{pix, pix})
+        return Arrays.stream(items)
+                .flatMap(item -> Arrays.stream(new String[] {item, item}))
+                .toArray(String[]::new);
+    }
+    public static String[][] enlargeArrayImage(String[][] image) {
+
+        String[][] horizontalyStretched = Arrays.stream(image)
+                .map(App::duplicateValues)
+                .toArray(String[][]::new);
+
+        return Arrays.stream(horizontalyStretched)
+                .flatMap(item -> Arrays.stream(new String[][] {item, item}))
                 .toArray(String[][]::new);
     }
 }
