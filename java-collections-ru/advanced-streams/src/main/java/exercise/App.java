@@ -1,22 +1,26 @@
 package exercise;
 
-import java.util.stream.Collectors;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 // BEGIN
 public class App {
     public static String getForwardedVariables(String conf) {
-        List<String> lines = Arrays.asList(conf.split("\n"));
-        String result = lines.stream()
-                .filter(line -> line.startsWith("environment="))
-                .map(line -> line.substring("environment=".length()))
-                .map(line -> line.split(","))
-                .flatMap(Arrays::stream)
-                .filter(line -> line.startsWith("X_FORWARDED_"))
-                .map(line -> line.substring("X_FORWARDED_".length() + 1))
+        Map<String, String> variableMap = Arrays.stream(conf.split("\n"))
+                .filter(line -> line.contains("environment"))
+                .map(line -> line.split("=", 2))
+                .map(parts -> parts[1].replaceAll("\"", ""))
+                .flatMap(variables -> Arrays.stream(variables.split(",")))
+                .map(variable -> variable.split("=", 2))
+                .filter(keyValue -> keyValue[0].startsWith("X_FORWARDED_"))
+                .collect(HashMap::new,
+                        (map, keyValue) -> map.put(keyValue[0].substring("X_FORWARDED_".length()), keyValue[1]),
+                        HashMap::putAll);
+
+        return variableMap.entrySet().stream()
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
                 .collect(Collectors.joining(","));
-        return result;
     }
 }
 //END
