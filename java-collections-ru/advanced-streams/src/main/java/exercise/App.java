@@ -3,6 +3,7 @@ package exercise;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 // BEGIN
 public class App {
