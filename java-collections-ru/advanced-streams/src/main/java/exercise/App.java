@@ -2,6 +2,7 @@ package exercise;
 
 import java.util.stream.Collectors;
 import java.util.Arrays;
+import java.util.List;
 
 // BEGIN
 public class App {
