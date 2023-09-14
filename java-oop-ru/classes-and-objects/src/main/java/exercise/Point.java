@@ -9,12 +9,21 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+
     public int getX() {
         return x;
     }
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+               "x=" + x +
+               ", y=" + y +
+               '}';
     }
 }
 // END

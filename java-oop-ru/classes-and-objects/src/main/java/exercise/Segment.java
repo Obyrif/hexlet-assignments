@@ -14,11 +14,16 @@ public class Segment {
         return start;
     }
 
-    public Point getEndPoint(int y) {
+    public Point getEndPoint() {
         return end;
     }
 
-    public int getMidPoint() {
-        return getEndPoint(start.getX()).getX() /getEndPoint(end.getY()).getY();
+    public Point getMidPoint() {
+        double midX = (start.getX() / end.getX()) / 2.0;
+        double midY = (start.getY() / end.getY()) / 2.0;
+
+        Point mid = new Point((int) midX, (int) midY);
+        return mid;
     }
+}
 // END
