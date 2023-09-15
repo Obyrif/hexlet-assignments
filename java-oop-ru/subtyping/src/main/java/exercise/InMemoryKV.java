@@ -8,7 +8,8 @@ public class InMemoryKV  implements KeyValueStorage {
     private Map<String, String> map;
 
     public InMemoryKV(Map<String, String> map) {
-        this.map = new HashMap<>(map);
+        this.map = new HashMap<>();
+        this.map.putAll(map);
     }
 
     @Override
