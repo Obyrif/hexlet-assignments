@@ -16,6 +16,9 @@ public class App {
         for (Map.Entry<String, String> entry : swappedMap.entrySet()) {
             storage.set(entry.getKey(), entry.getValue());
         }
+        Set<Map<String, String>> s = new HashSet<>();
+        s.add(existingData);
+        s.add(swappedMap);
     }
 }
 
