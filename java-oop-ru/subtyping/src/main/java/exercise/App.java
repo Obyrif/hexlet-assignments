@@ -1,17 +1,17 @@
 package exercise;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class App {
     public static void swapKeyValue(KeyValueStorage storage) {
-        Map<String, String> existingData = new HashMap<>();
-        TreeMap<String, String> s = new TreeMap<>(existingData);
-        for (Map.Entry<String, String> entry : existingData.entrySet()) {
-            existingData.put(entry.getValue(), entry.getKey());
-        }
+        Map<String, String> result = storage.toMap();
+        result.entrySet().stream()
+                .forEach(x -> {
+                    var r = x.getKey();
+                    var e = x.getValue();
+                    storage.unset(r);
+                    storage.set(e, r);
+                });
     }
 }
-
 // END
