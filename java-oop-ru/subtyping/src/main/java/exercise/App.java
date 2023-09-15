@@ -8,7 +8,7 @@ import java.util.Set;
 public class App {
     public static void swapKeyValue(KeyValueStorage storage) {
         Map<String, String> existingData = storage.toMap();
-        Map<String, String> swappedMap = new Hashap<>();
+        Map<String, String> swappedMap = new HashMap<>();
 
         for (Map.Entry<String, String> entry : existingData.entrySet()) {
             swappedMap.put(entry.getValue(), entry.getKey());
