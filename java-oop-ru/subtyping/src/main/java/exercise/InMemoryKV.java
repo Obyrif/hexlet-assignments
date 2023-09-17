@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 // BEGIN
-public final class InMemoryKV  implements KeyValueStorage {
+public class InMemoryKV  implements KeyValueStorage {
     private final Map<String, String> map;
 
     InMemoryKV(Map<String, String> map) {
@@ -13,12 +13,16 @@ public final class InMemoryKV  implements KeyValueStorage {
 
     @Override
     public void set(String key, String value) {
-        map.put(key, value);
+        Map<String, String> newMap = new HashMap<>(map);
+        newMap.put(key, value);
+        map = newMap;
     }
 
     @Override
     public void unset(String key) {
-        map.remove(key);
+        ap<String, String> newMap = new HashMap<>(map);
+        newMap.remove(key);
+        map = newMap;
     }
 
     @Override
@@ -28,7 +32,7 @@ public final class InMemoryKV  implements KeyValueStorage {
 
     @Override
     public Map<String, String> toMap() {
-        return map;
+        return new HashMap<>(map);
     }
 }
 // END
