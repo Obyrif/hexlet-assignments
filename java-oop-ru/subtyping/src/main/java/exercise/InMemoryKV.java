@@ -20,7 +20,7 @@ public class InMemoryKV  implements KeyValueStorage {
 
     @Override
     public void unset(String key) {
-        ap<String, String> newMap = new HashMap<>(this.map);
+        Map<String, String> newMap = new HashMap<>(this.map);
         newMap.remove(key);
         this.map = newMap;
     }
