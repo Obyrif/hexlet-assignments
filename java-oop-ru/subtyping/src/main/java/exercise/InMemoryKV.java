@@ -2,14 +2,13 @@ package exercise;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Collections;
 
 // BEGIN
 public class InMemoryKV  implements KeyValueStorage {
     private final Map<String, String> map;
 
-    public InMemoryKV(Map<String, String> map) {
-        this.map = Collections.unmodifiableMap(new HashMap<>(map));
+    InMemoryKV(Map<String, String> map) {
+        this.map = new HashMap<>(map);
     }
 
     @Override
