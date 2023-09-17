@@ -13,26 +13,26 @@ public class InMemoryKV  implements KeyValueStorage {
 
     @Override
     public void set(String key, String value) {
-        Map<String, String> newMap = new HashMap<>(map);
+        Map<String, String> newMap = new HashMap<>(this.map);
         newMap.put(key, value);
-        map = newMap;
+        this.map = newMap;
     }
 
     @Override
     public void unset(String key) {
-        ap<String, String> newMap = new HashMap<>(map);
+        ap<String, String> newMap = new HashMap<>(this.map);
         newMap.remove(key);
-        map = newMap;
+        this.map = newMap;
     }
 
     @Override
     public String get(String key, String defaultValue) {
-        return map.getOrDefault(key, defaultValue);
+        return this.map.getOrDefault(key, defaultValue);
     }
 
     @Override
     public Map<String, String> toMap() {
-        return new HashMap<>(map);
+        return new HashMap<>(this.map);
     }
 }
 // END
