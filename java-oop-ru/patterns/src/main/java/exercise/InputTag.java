@@ -12,7 +12,8 @@ public class InputTag implements TagInterface {
 
     @Override
     public String render() {
-        return String.format("<input type=\"%s\"value=\"%s\">", type, value);
+        String tag = tagInterface.render();
+        return String.format("<label>%s %s</label>", value, tag);
     }
 }
 // END
