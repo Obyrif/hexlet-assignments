@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class LabelTag implements TagInterface {
+public class LabelTag implements TagInterface{
     private String value;
     private TagInterface tagInterface;
 
@@ -12,7 +12,8 @@ public class LabelTag implements TagInterface {
 
     @Override
     public String render() {
-        return String.format("<label value=\"%s\"\\%s\"", value, tagInterface);
+        String tag = tagInterface.render();
+        return String.format("<label>%s%s</label>", value, tag);
     }
 }
 // END

@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class InputTag implements TagInterface {
+public class InputTag implements TagInterface{
     private String type;
     private String value;
 
@@ -10,10 +10,8 @@ public class InputTag implements TagInterface {
         this.value = value;
     }
 
-    @Override
     public String render() {
-        String tag = tagInterface.render();
-        return String.format("<label>%s %s</label>", value, tag);
+        return String.format("<input type=\"" + type + "\" value=\"" + value + "\">");
     }
 }
 // END
