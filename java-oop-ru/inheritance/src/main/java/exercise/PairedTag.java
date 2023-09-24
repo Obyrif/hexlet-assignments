@@ -19,7 +19,7 @@ public class PairedTag extends Tag {
         sb.append("<").append(getName());
 
         for (Map.Entry<String, String> entry : getAttribute().entrySet()) {
-            sb.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\">").append(string);
+            sb.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"").append(string);
         }
         for (Tag child : list) {
             sb.append(child.toString());
