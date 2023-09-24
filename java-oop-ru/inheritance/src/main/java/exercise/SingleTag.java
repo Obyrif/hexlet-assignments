@@ -12,7 +12,7 @@ public class SingleTag extends Tag {
         StringBuilder sb = new StringBuilder();
         sb.append("<").append(getName());
 
-        for(Map.Entry<String, String> entry: getAttribute().entrySet()) {
+        for (Map.Entry<String, String> entry : getAttribute().entrySet()) {
             sb.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"");
         }
         sb.append(">");
