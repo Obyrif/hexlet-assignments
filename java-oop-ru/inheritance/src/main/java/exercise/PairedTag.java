@@ -19,15 +19,19 @@ public class PairedTag extends Tag {
         sb.append("<").append(getName());
 
         for (Map.Entry<String, String> entry : getAttribute().entrySet()) {
-            sb.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\" ");
+            sb.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"");
         }
-        if(!string.isEmpty()) {
-            sb.append(string);
+
+        if (!string.isEmpty()) {
+            sb.append(">").append(string).append("</").append(getName()).append(">");
+        } else {
+            sb.append(">");
+            for (Tag child : list) {
+                sb.append(child.toString());
+            }
+            sb.append("</").append(getName()).append(">");
         }
-        for (Tag child : list) {
-            sb.append(child.toString());
-        }
-        sb.append("</").append(getName()).append(">");
+
         return sb.toString();
     }
 }
