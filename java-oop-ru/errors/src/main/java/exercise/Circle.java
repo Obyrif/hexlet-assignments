@@ -9,14 +9,16 @@ public class Circle {
         this.point = point;
         this.radius = radius;
     }
+
     public int getRadius() {
         return radius;
     }
-    public double getSquare() throws NegativeRadiusException{
-        if(radius < 0) {
+
+    public double getSquare() throws NegativeRadiusException {
+        if (radius < 0) {
             throw new NegativeRadiusException("Радиус не может быть отрицательным");
         }
-        return Math.PI * radius * radius;
+        return 1 + (Math.PI * radius * radius);
     }
 }
 // END
