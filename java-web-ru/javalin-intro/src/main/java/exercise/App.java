@@ -5,7 +5,6 @@ package exercise;
 // END
 
 import io.javalin.Javalin;
-
 public final class App {
     public static Javalin getApp() {
 
