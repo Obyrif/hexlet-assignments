@@ -18,8 +18,8 @@ public final class App {
         var app = Javalin.create(config -> {
             config.plugins.enableDevLogging();
         });
-        app.get("/users", ctx -> ctx.jsonStream(phones));
-        app.post("/users", ctx -> ctx.jsonStream(domains));
+        app.get("GET /phones", ctx -> ctx.json(phones));
+        app.post("GET /domains", ctx -> ctx.json(domains));
         return app;
         // END
     }
