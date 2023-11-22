@@ -10,16 +10,23 @@ public final class App {
 
         // BEGIN
 
-        // Получаем список телефонов
-        List<String> phones = Data.getPhones();
-        // Получаем список доменных имен
-        List<String> domains = Data.getDomains();
-
         var app = Javalin.create(config -> {
             config.plugins.enableDevLogging();
         });
-        app.get("GET /phones", ctx -> ctx.json(phones).result("phones"));
-        app.post("GET /domains", ctx -> ctx.json(domains).result("domains"));
+        app.get("/phones", ctx -> {
+            List<String> phones = Data.getPhones();
+            // Преобразование списка телефонов в формат JSON
+            String jsonPhones = new ObjectMapper().writeValueAsString(phones);
+            ctx.result(jsonPhones).contentType("application/json");
+        });
+
+        // Обработчик для маршрута /domains
+        app.get("/domains", ctx -> {
+            List<String> domains = Data.getDomains();
+            // Преобразование списка доменов в формат JSON
+            String jsonDomains = new ObjectMapper().writeValueAsString(domains);
+            ctx.result(jsonDomains).contentType("application/json");
+        });
         return app;
         // END
     }
