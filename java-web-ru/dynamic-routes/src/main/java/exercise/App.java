@@ -29,7 +29,7 @@ public final class App {
                     return;
                 }
             }
-            ctx.status(404);
+            ctx.status(404).result("Company not found");
         });
         // END
 
