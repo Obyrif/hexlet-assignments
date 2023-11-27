@@ -29,7 +29,7 @@ public final class App {
 
         // BEGIN
         app.get("/users/build", ctx -> {
-            ctx.render("users/new.jte");
+            ctx.render("users/build.jte");
         });
 
         app.post("/users", ctx -> {
