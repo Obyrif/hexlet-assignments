@@ -37,21 +37,18 @@ public final class App {
         app.post("/articles", ctx -> {
             var title = ctx.formParam("title");
             var content = ctx.formParam("content");
-
             try {
                 title = ctx.formParamAsClass("title", String.class)
                         .check(value -> value.length() > 2, "Название не должно быть короче двух символов")
                         .check(value -> !ArticleRepository.existsByTitle(value),
                                 "Статья с таким названием уже существует")
                         .get();
-
                 content = ctx.formParamAsClass("content", String.class)
                         .check(value -> value.length() > 10, "Статья должна быть не короче 10 символов")
                         .get();
-
                 var article = new Article(title, content);
                 ArticleRepository.save(article);
-                ctx.render("/articles");
+                ctx.redirect("/articles");
             } catch (ValidationException e) {
                 var page = new NewArticlePage(title, content, e.getErrors());
                 ctx.render("articles/build.jte", Collections.singletonMap("page", page)).status(422);
