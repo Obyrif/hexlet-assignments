@@ -1,22 +1,45 @@
 <!-- BEGIN -->
-@import exercise.util.NamedRoutes
 @import exercise.dto.posts.PostsPage
+@import exercise.util.NamedRoutes
 @param PostsPage page
 
 @template.layout.page(
 content = @`
-    @if(page.getPosts().isEmpty())
-        <p>Пока не добавлено ни одного поста</p>
-    @else
-        <ul>
-            @for(var post : page.getPosts())
-                <li><a href="${NamedRoutes.postPath(post.getId())}">${post.getName()}</a></li>
-            @endfor
-        </ul>
-    @endif
-    <div>
-        <a href="${NamedRoutes.postsPath()}?page=${page.previous()}">Предыдущая страница</a>
-        <a href="${NamedRoutes.postsPath()}?page=${page.next()}">Следующая страница</a>
+    <div class="mx-auto p-4 py-md-5">
+        <main>
+            <h1>Все посты</h1>
+
+            <table class="table table-striped">
+                @for(var post : page.getPosts())
+                    <tr>
+                        <td>
+                            ${post.getId()}
+                        </td>
+                        <td>
+                            <a href="${NamedRoutes.postPath(post.getId())}">${post.getName()}</a>
+                        </td>
+                        <td>
+                            ${post.getBody()}
+                        </td>
+                    </tr>
+                @endfor
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="?page=${page.getPage() < 2 ? 1 : page.getPage() - 1}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="${NamedRoutes.postsPath()}?page=${page.getPage()}">${page.getPage()}</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=${page.getPage() + 1}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </main>
     </div>
 `
 )
