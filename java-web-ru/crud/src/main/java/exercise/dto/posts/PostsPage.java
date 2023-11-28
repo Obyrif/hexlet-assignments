@@ -12,15 +12,7 @@ import lombok.Getter;
 @Getter
 public class PostsPage {
     private List<Post> posts;
-    private Integer numberPage;
-
-    public Integer next() {
-        return this.getNumberPage() + 1;
-    }
-
-    public Integer previous() {
-        return this.getNumberPage() - 1;
-    }
+    private int page;
 }
 // END
 
