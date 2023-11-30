@@ -30,12 +30,12 @@ public class UsersController {
     }
 
     public static void create(Context ctx) {
-        var firstname = ctx.formParam("firstname");
-        var lastname = ctx.formParam("lastname");
-        var email = ctx.formParam("email").toLowerCase();
+        var firstName = ctx.formParam("firstName");
+        var lastName = ctx.formParam("lastName");
+        var email = ctx.formParam("email");
         var password = ctx.formParam("password");
         var token = Security.generateToken();
-        var user = new User(firstname, lastname, email, password, token);
+        var user = new User(firstName, lastName, email, password, token);
         UserRepository.save(user);
         ctx.cookie("token", token);
         ctx.redirect(NamedRoutes.userPath(user.getId()));
