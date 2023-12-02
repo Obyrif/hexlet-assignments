@@ -2,7 +2,6 @@
 @import exercise.util.NamedRoutes
 @param LoginPage page
 
-<!-- BEGIN -->
 @template.layout.page(
 content = @`
     @if(page.getError() != null)
@@ -15,4 +14,3 @@ content = @`
     </form>
 `
 )
-<!-- END -->

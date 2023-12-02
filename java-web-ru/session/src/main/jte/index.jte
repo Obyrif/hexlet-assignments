@@ -2,7 +2,6 @@
 @import exercise.util.NamedRoutes
 @param MainPage page
 
-<!-- BEGIN -->
 @template.layout.page(
 content = @`
     <main>
@@ -15,4 +14,3 @@ content = @`
     </main>
 `
 )
-<!-- END -->
