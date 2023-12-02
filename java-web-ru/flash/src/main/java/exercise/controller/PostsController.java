@@ -24,7 +24,7 @@ public class PostsController {
             var name = ctx.formParamAsClass("name", String.class)
                     .check(value -> value.length() > 2, "У названия курса недостаточная длина")
                     .get().trim();
-            var body = ctx.pathParamAsClass("body", String.class).get().trim();
+            var body = ctx.formParamAsClass("body", String.class).get().trim();
             var post = new Post(name, body);
             PostRepository.save(post);
             ctx.sessionAttribute("flash", "Пост был успешно создан!");
